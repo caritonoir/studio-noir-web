@@ -140,15 +140,18 @@ const Hero = () => {
       </div>
 
       {/* ===== MOBILE ===== */}
-      <div className="lg:hidden flex flex-col items-center justify-center h-full px-6 py-20">
-        <div className="text-center mb-12 flex flex-col items-center">
-          <div className="flex items-center justify-center gap-1 mb-5">
+      <div className="lg:hidden flex flex-col items-center min-h-[100svh] px-6 pt-28 pb-16">
+        <div className="text-center mb-10 flex flex-col items-center flex-shrink-0 z-10 relative">
+          <div className="flex items-center justify-center gap-1 mb-4">
             <span className="font-instrument font-normal text-xl tracking-wide text-[#FFCE1F] uppercase">STUDIO</span>
             <span className="font-instrument font-bold text-xl tracking-tight text-[#FFCE1F] uppercase">NOIR</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-instrument font-medium text-[#111111] leading-[1.1] mb-8 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-instrument font-medium text-[#111111] leading-[1.1] mb-6 tracking-tight">
             Amor a primera foto
           </h1>
+          <p className="text-lg text-gray-800 mb-8 max-w-[280px]">
+            Destacá tu propiedad en <span className="font-bold">24 horas.</span>
+          </p>
           <button
             onClick={scrollToContact}
             className="bg-[#FFCE1F] hover:bg-[#F5C31A] text-black font-normal py-3.5 px-8 rounded-xl transition-all shadow-md text-lg inline-block"
@@ -156,11 +159,18 @@ const Hero = () => {
             Pedí tu <span className="font-bold">presupuesto</span>
           </button>
         </div>
-        <div className="grid grid-cols-2 gap-3 w-full max-w-sm">
-          <img src={h7} className="rounded-xl aspect-video object-cover" alt="" />
-          <img src={h8} className="rounded-xl aspect-video object-cover" alt="" />
-          <img src={h9} className="rounded-xl aspect-video object-cover" alt="" />
-          <img src={h10} className="rounded-xl aspect-video object-cover" alt="" />
+
+        {/* Dynamic Mobile Collage */}
+        <div className="grid grid-cols-2 gap-3 w-full max-w-[340px] mx-auto flex-grow max-h-[40vh] min-h-[250px]">
+          <div className="col-span-1 row-span-2 relative rounded-2xl overflow-hidden shadow-lg transform -rotate-2 origin-bottom-right">
+             <img src={h16} className="absolute inset-0 w-full h-full object-cover" alt="" />
+          </div>
+          <div className="col-span-1 row-span-1 relative rounded-2xl overflow-hidden shadow-lg transform rotate-2">
+             <img src={h7} className="absolute inset-0 w-full h-full object-cover" alt="" />
+          </div>
+          <div className="col-span-1 row-span-1 relative rounded-2xl overflow-hidden shadow-lg -mt-2">
+             <img src={h19} className="absolute inset-0 w-full h-full object-cover" alt="" />
+          </div>
         </div>
       </div>
 
