@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  /* background-color: #FFFCF5; */
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 700;
+}
+
+.circular-collage {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 600px;
+  margin: 0 auto;
+}
+
+.collage-item {
+  position: absolute;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.collage-item:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
