@@ -97,7 +97,7 @@ const Hero = () => {
       </div>
 
       {/* ===== CENTER CONTENT ===== */}
-      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+      <div className="absolute inset-0 hidden lg:flex items-center justify-center z-10 pointer-events-none">
         <div className="text-center flex flex-col items-center justify-center pointer-events-auto">
           <motion.div
             initial={{ opacity: 0, y: -15 }}
