@@ -2,10 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 // FEATURES images
-import featPool from '../assets/FEATURES/MaterialListoParaPublicarEn24Horas.jpg';
-import featStaircase from '../assets/FEATURES/post-producciondealtacalidad.jpg';
-import featOffice from '../assets/FEATURES/Masde10añosdeexperiencia.jpg';
-import featHero from '../assets/FEATURES/atencionpersonalizada.JPG';
+import featPool from '../assets/FEATURES/material24h.jpg';
+import featStaircase from '../assets/FEATURES/post-prod.jpg';
+import featOffice from '../assets/FEATURES/experiencia.jpg';
+import featHero from '../assets/FEATURES/atencion.jpg';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
