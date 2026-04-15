@@ -1,6 +1,6 @@
 import React from 'react';
 import { Instagram, Facebook, Linkedin, Globe } from 'lucide-react';
-import footerLogo from '../assets/footer/logo.png';
+import footerLogo from '../assets/FOOTER/logo.png';
 
 const Footer = () => {
   return (
