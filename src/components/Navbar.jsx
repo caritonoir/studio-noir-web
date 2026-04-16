@@ -20,7 +20,7 @@ const Navbar = () => {
   ];
 
   const rightLinks = [
-    { name: 'Precios', href: '#precios' },
+    { name: 'Paquetes', href: '#paquetes' },
     { name: 'Contacto', href: '#contacto' },
   ];
 

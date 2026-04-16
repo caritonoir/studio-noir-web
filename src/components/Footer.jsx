@@ -22,7 +22,7 @@ const Footer = () => {
               <h4 className="font-bold text-sm uppercase tracking-wider mb-2">Recorré el sitio</h4>
               <a href="#sobre-nosotros" className="text-gray-500 text-sm hover:text-primary">Sobre Nosotros</a>
               <a href="#servicios" className="text-gray-500 text-sm hover:text-primary">Servicios</a>
-              <a href="#portfolio" className="text-gray-500 text-sm hover:text-primary">Portfolio</a>
+              <a href="#paquetes" className="text-gray-500 text-sm hover:text-primary">Paquetes</a>
               <a href="#contacto" className="text-gray-500 text-sm hover:text-primary">Contacto</a>
             </div>
           </div>

@@ -70,7 +70,7 @@ const Pricing = () => {
   ];
 
   return (
-    <section id="precios" className="py-24 bg-white relative overflow-hidden">
+    <section id="paquetes" className="py-24 bg-white relative overflow-hidden">
       <div className="w-full px-[8vw] mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -79,7 +79,7 @@ const Pricing = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-normal mb-4">Nuestros <span className="font-bold
-                ">precios</span></h2>
+                ">paquetes</span></h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
