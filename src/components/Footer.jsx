@@ -6,8 +6,8 @@ const Footer = () => {
   return (
     <footer className="py-20 bg-white border-t border-gray-100">
       <div className="w-full px-[8vw] mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
-          <div className="max-w-xs">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-12">
+          <div className="max-w-xs text-center md:text-left flex flex-col items-center md:items-start">
             <div className="flex items-center gap-2 mb-6">
               <img src={footerLogo} alt="Studio Noir logo" className="w-8 h-8 object-contain" />
               <span className="font-instrument font-bold text-xl tracking-tight">STUDIO NOIR</span>
@@ -27,8 +27,8 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex flex-col items-start md:items-end gap-6">
-            <div className="flex gap-4">
+          <div className="flex flex-col items-center md:items-end gap-6 text-center md:text-right w-full md:w-auto">
+            <div className="flex justify-center md:justify-end gap-4">
               <a href="https://studionoir.myportfolio.com" target="_blank"
                 rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center hover:bg-primary transition-colors text-gray-700 hover:text-white">
                 <Globe size={20} />
@@ -43,7 +43,7 @@ const Footer = () => {
                 <Instagram size={20} />
               </a>
             </div>
-            <p className="text-gray-400 text-xs text-right">
+            <p className="text-gray-400 text-xs text-center md:text-right">
               © {new Date().getFullYear()} Studio Noir. Todos los derechos reservados.
             </p>
           </div>

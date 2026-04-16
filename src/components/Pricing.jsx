@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
+import basicIlus from '../assets/office.png';
+import completeIlus from '../assets/living_large.png';
+import premiumIlus from '../assets/pool.png';
 
-const PricingCard = ({ title, subtitle, price, features, delay }) => (
+const PricingCard = ({ title, subtitle, img, features, delay }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -13,9 +16,8 @@ const PricingCard = ({ title, subtitle, price, features, delay }) => (
     <h3 className="text-lg font-bold mb-1">{title}</h3>
     <p className="text-sm text-gray-500 mb-6">{subtitle}</p>
 
-    <div className="flex items-baseline gap-1 mb-8">
-      <span className="text-5xl md:text-6xl font-bold tracking-tight">${price}</span>
-      <span className="text-gray-400 text-base font-normal">/ sesión</span>
+    <div className="flex items-center justify-center mb-8 h-32 w-full rounded-2xl bg-[#FFFBEB] overflow-hidden">
+      <img src={img} alt={title} className="w-full h-full object-cover" />
     </div>
 
     <ul className="space-y-3 mb-10 flex-grow">
@@ -41,7 +43,7 @@ const Pricing = () => {
     {
       title: "Pack Básico",
       subtitle: "Inmuebles hasta 2 ambientes",
-      price: "80",
+      img: basicIlus,
       features: [
         "10 Fotografías en HD",
         "Post-producción digital",
@@ -51,7 +53,7 @@ const Pricing = () => {
     {
       title: "Pack Completo",
       subtitle: "Inmuebles de 3 a 5 ambientes",
-      price: "200",
+      img: completeIlus,
       features: [
         "Pack <strong>básico</strong>",
         "10 fotografías extra",
@@ -61,7 +63,7 @@ const Pricing = () => {
     {
       title: "Pack Premium",
       subtitle: "Inmuebles de + de 5 ambientes",
-      price: "350",
+      img: premiumIlus,
       features: [
         "Pack <strong>completo</strong>",
         "15 fotografías extra",
