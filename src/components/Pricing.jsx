@@ -1,11 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
-import basicIlus from '../assets/office.png';
-import completeIlus from '../assets/living_large.png';
-import premiumIlus from '../assets/pool.png';
+import { Check, Home, Building, Crown } from 'lucide-react';
 
-const PricingCard = ({ title, subtitle, img, features, delay }) => (
+const PricingCard = ({ title, subtitle, icon: Icon, features, delay }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -16,8 +13,8 @@ const PricingCard = ({ title, subtitle, img, features, delay }) => (
     <h3 className="text-lg font-bold mb-1">{title}</h3>
     <p className="text-sm text-gray-500 mb-6">{subtitle}</p>
 
-    <div className="flex items-center justify-center mb-8 h-32 w-full rounded-2xl bg-[#FFFBEB] overflow-hidden">
-      <img src={img} alt={title} className="w-full h-full object-cover" />
+    <div className="flex items-center justify-center mb-8 h-32 w-full rounded-2xl bg-[#FFFBEB] overflow-hidden group-hover:scale-105 transition-transform duration-300">
+      <Icon size={64} strokeWidth={1.5} className="text-[#FFCE1F]" />
     </div>
 
     <ul className="space-y-3 mb-10 flex-grow">
@@ -43,7 +40,7 @@ const Pricing = () => {
     {
       title: "Pack Básico",
       subtitle: "Inmuebles hasta 2 ambientes",
-      img: basicIlus,
+      icon: Home,
       features: [
         "10 Fotografías en HD",
         "Post-producción digital",
@@ -53,7 +50,7 @@ const Pricing = () => {
     {
       title: "Pack Completo",
       subtitle: "Inmuebles de 3 a 5 ambientes",
-      img: completeIlus,
+      icon: Building,
       features: [
         "Pack <strong>básico</strong>",
         "10 fotografías extra",
@@ -63,7 +60,7 @@ const Pricing = () => {
     {
       title: "Pack Premium",
       subtitle: "Inmuebles de + de 5 ambientes",
-      img: premiumIlus,
+      icon: Crown,
       features: [
         "Pack <strong>completo</strong>",
         "15 fotografías extra",
