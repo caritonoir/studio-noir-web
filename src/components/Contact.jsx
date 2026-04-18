@@ -33,7 +33,7 @@ const Contact = () => {
       const remax = isRemax ? 'Sí' : 'No';
       const subject = `Consulta de ${name}`;
       const body = `Nombre: ${name}%0AEmail: ${email}%0AAmbientes: ${ambientes}%0AAgente REMAX: ${remax}%0AMensaje: ${message}`;
-      window.open(`mailto:holastudionoir@gmail.com?subject=${subject}&body=${body}`);
+      window.open(`mailto:info@studionoir.com.ar?subject=${subject}&body=${body}`);
       setStatus('success');
     }
   };
@@ -82,10 +82,10 @@ const Contact = () => {
                 <Instagram size={18} className="text-gray-700" />
               </a>
               <a
-                href="mailto:holastudionoir@gmail.com"
+                href="mailto:info@studionoir.com.ar"
                 className="text-sm text-gray-700 hover:text-black transition-colors ml-1"
               >
-                holastudionoir@gmail.com
+                info@studionoir.com.ar
               </a>
             </div>
           </div>
@@ -119,7 +119,7 @@ const Contact = () => {
               >
                 {/* Netlify hidden fields */}
                 <input type="hidden" name="form-name" value="contacto" />
-                <input type="hidden" name="recipient" value="holastudionoir@gmail.com" />
+                <input type="hidden" name="recipient" value="info@studionoir.com.ar" />
                 <p className="hidden">
                   <label>No llenar: <input name="bot-field" /></label>
                 </p>
