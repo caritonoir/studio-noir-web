@@ -10,31 +10,29 @@ const Contact = () => {
     e.preventDefault();
     setStatus('sending');
 
-    const formData = new FormData(e.target);
-
-    // Add Agente REMAX field
+    const form = e.target;
+    const formData = new FormData(form);
     formData.set('agente_remax', isRemax ? 'Sí' : 'No');
 
     try {
-      // Netlify Forms submission
-      await fetch('/', {
+      const response = await fetch('/contact.php', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString(),
+        body: formData
       });
-      setStatus('success');
+
+      const result = await response.json();
+      
+      if (response.ok && result.success) {
+        setStatus('success');
+      } else {
+        console.error('Error:', result.message);
+        alert('Hubo un error: ' + (result.message || 'Error desconocido al enviar el email.'));
+        setStatus('idle');
+      }
     } catch (error) {
       console.error('Error:', error);
-      // Fallback: open mailto
-      const name = formData.get('name');
-      const email = formData.get('email');
-      const message = formData.get('message');
-      const ambientes = formData.get('ambientes');
-      const remax = isRemax ? 'Sí' : 'No';
-      const subject = `Consulta de ${name}`;
-      const body = `Nombre: ${name}%0AEmail: ${email}%0AAmbientes: ${ambientes}%0AAgente REMAX: ${remax}%0AMensaje: ${message}`;
-      window.open(`mailto:info@studionoir.com.ar?subject=${subject}&body=${body}`);
-      setStatus('success');
+      alert('Ocurrió un error de red o de servidor. Por favor intenta de nuevo.');
+      setStatus('idle');
     }
   };
 
@@ -112,17 +110,9 @@ const Contact = () => {
               <form
                 name="contacto"
                 method="POST"
-                data-netlify="true"
-                netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
                 className="grid grid-cols-1 md:grid-cols-2 gap-4"
               >
-                {/* Netlify hidden fields */}
-                <input type="hidden" name="form-name" value="contacto" />
-                <input type="hidden" name="recipient" value="info@studionoir.com.ar" />
-                <p className="hidden">
-                  <label>No llenar: <input name="bot-field" /></label>
-                </p>
 
                 <input
                   type="text" name="name" placeholder="Nombre*" required
@@ -173,7 +163,7 @@ const Contact = () => {
                   className="w-full bg-white rounded-xl p-4 border border-gray-200 focus:border-primary outline-none transition-all col-span-1 md:col-span-2 resize-vertical"
                 ></textarea>
 
-                <div className="col-span-1 md:col-span-2 flex justify-center">
+                <div className="col-span-1 md:col-span-2 flex justify-center mt-4">
                   <button
                     type="submit"
                     disabled={status === 'sending'}
