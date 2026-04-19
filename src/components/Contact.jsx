@@ -20,13 +20,22 @@ const Contact = () => {
         body: formData
       });
 
-      const result = await response.json();
+      const text = await response.text();
+      let result;
+      try {
+        result = JSON.parse(text);
+      } catch (err) {
+        console.error('El servidor no devolvió JSON válido. Respuesta:', text);
+        alert('Hubo un error en el servidor. Revisa la consola o asegúrate de que el Host de Ferozo sea el correcto y no haya errores de PHP.');
+        setStatus('idle');
+        return;
+      }
       
-      if (response.ok && result.success) {
+      if (response.ok && result?.success) {
         setStatus('success');
       } else {
-        console.error('Error:', result.message);
-        alert('Hubo un error: ' + (result.message || 'Error desconocido al enviar el email.'));
+        console.error('Error:', result?.message);
+        alert('Hubo un error: ' + (result?.message || 'Error desconocido al enviar el email.'));
         setStatus('idle');
       }
     } catch (error) {

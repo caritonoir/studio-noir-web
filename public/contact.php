@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '0');
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -50,7 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         // Configuración SMTP de Ferozo
         $mail->isSMTP();
-        $mail->Host = 'info@studionoir.com.ar';
+        // IMPORTANTE: El Host NO es tu email. Suele ser algo como 'mail.studionoir.com.ar' o bien el nombre de tu servidor Ferozo (ej: 'c20...ferozo.com').
+        $mail->Host = 'mail.studionoir.com.ar';
         $mail->SMTPAuth = true;
         // IMPORTANTE: Completa el usuario y la contraseña (la contraseña de esa cuenta)
         $mail->Username = 'info@studionoir.com.ar';
