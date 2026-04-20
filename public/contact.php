@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Configuración SMTP de Ferozo
         $mail->isSMTP();
         // IMPORTANTE: El Host NO es tu email. Suele ser algo como 'mail.studionoir.com.ar' o bien el nombre de tu servidor Ferozo (ej: 'c20...ferozo.com').
-        $mail->Host = 'mail.studionoir.com.ar';
+        $mail->Host = 'a0100241.ferozo.com';
         $mail->SMTPAuth = true;
         // IMPORTANTE: Completa el usuario y la contraseña (la contraseña de esa cuenta)
         $mail->Username = 'info@studionoir.com.ar';
