@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Instagram, Globe, CheckCircle2 } from 'lucide-react';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const [status, setStatus] = useState('idle'); // idle, sending, success, error
@@ -10,37 +11,19 @@ const Contact = () => {
     e.preventDefault();
     setStatus('sending');
 
-    const form = e.target;
-    const formData = new FormData(form);
-    formData.set('agente_remax', isRemax ? 'Sí' : 'No');
-
     try {
-      const response = await fetch('/contact.php', {
-        method: 'POST',
-        body: formData
-      });
+      // Reemplazá con tus credenciales de EmailJS
+      await emailjs.sendForm(
+        'service_1wjxuh7',
+        'template_ksiiiad',
+        e.target,
+        'FMEau-_Exbtu-9SCu'
+      );
 
-      const text = await response.text();
-      let result;
-      try {
-        result = JSON.parse(text);
-      } catch (err) {
-        console.error('El servidor no devolvió JSON válido. Respuesta:', text);
-        alert('Hubo un error en el servidor. Revisa la consola o asegúrate de que el Host de Ferozo sea el correcto y no haya errores de PHP.');
-        setStatus('idle');
-        return;
-      }
-      
-      if (response.ok && result?.success) {
-        setStatus('success');
-      } else {
-        console.error('Error:', result?.message);
-        alert('Hubo un error: ' + (result?.message || 'Error desconocido al enviar el email.'));
-        setStatus('idle');
-      }
+      setStatus('success');
     } catch (error) {
-      console.error('Error:', error);
-      alert('Ocurrió un error de red o de servidor. Por favor intenta de nuevo.');
+      console.error('Error EmailJS:', error);
+      alert('Ocurrió un error al enviar el mensaje. Por favor, intenta de nuevo.');
       setStatus('idle');
     }
   };
